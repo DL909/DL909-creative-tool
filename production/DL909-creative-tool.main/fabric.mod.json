@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "dl_ct",
+  "version": "${version}",
+
+  "name": "DL909 creative tool",
+  "description": "A mod add some useful debug tool",
+  "authors": [
+    "DL909"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/dl_ct/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.dl909.dl_ct.dl909_creative_tool"
+    ]
+  },
+  "mixins": [
+    "dl_ct.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric-api": "*",
+    "minecraft": "~1.19.4",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

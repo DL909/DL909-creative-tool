@@ -1,0 +1,15 @@
+{
+  "item.ri.experience_nugget": "经验颗粒",
+  "item.ri.experience_extractor": "经验提取器",
+  "item.ri.experience_storage": "经验存储器",
+  "item.ri.item_exterminator": "物品销毁器",
+  "item.ri.infinite_water_bucket": "无限水桶",
+  "item.ri.infinite_empty_bucket": "无限空桶",
+  "item.ri.item_tp_block_key": "物品传送器钥匙",
+
+  "itemGroup.ri_tools.general": "工具",
+  "itemGroup.ri_item.general": "物品",
+
+  "item.experience_storage.tooltip": "经验："
+
+}

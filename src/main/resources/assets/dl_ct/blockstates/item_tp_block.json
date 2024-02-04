@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "ri:block/item_tp_block" }
+  }
+}

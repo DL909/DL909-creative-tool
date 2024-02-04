@@ -1,0 +1,16 @@
+{
+  "item.ri.experience_nugget": "experience nugget",
+  "item.ri.experience_extractor": "Experience extractor",
+  "item.ri.experience_storage": "experience storage",
+  "item.ri.item_exterminator": "item exterminator",
+  "item.ri.infinite_water_bucket": "infinite water bucket",
+  "item.ri.infinite_empty_bucket": "infinite empty bucket",
+  "item.ri.item_tp_block_key": "item tp block key",
+
+  "item.experience_storage.tooltip": "experience:",
+
+  "itemGroup.ri_tools.general": "Tools",
+  "itemGroup.ri_item.general": "Items"
+
+
+}
