@@ -1,20 +1,15 @@
 package net.dl909.dl_ct.block;
 
-import net.dl909.dl_ct.DL909_creative_tool;
 import net.dl909.dl_ct.block.entity.item_stream_emulator_block_entity;
+import net.dl909.dl_ct.dl909_creative_tool;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.enums.DoorHinge;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.Entity;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 
 public class item_stream_emulator_block extends BlockWithEntity implements BlockEntityProvider {
     public static final BooleanProperty POWERED;
@@ -41,7 +36,7 @@ public class item_stream_emulator_block extends BlockWithEntity implements Block
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, DL909_creative_tool.ITEM_STREAM_EMULATOR_BLOCK_ENTITY, (world1, pos, state1, be) -> item_stream_emulator_block_entity.tick(world1, pos, state1, be));
+        return checkType(type, dl909_creative_tool.ITEM_STREAM_EMULATOR_BLOCK_ENTITY, item_stream_emulator_block_entity::tick);
     }
     static {
         POWERED = Properties.POWERED;

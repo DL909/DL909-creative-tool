@@ -1,6 +1,6 @@
 package net.dl909.dl_ct.block.entity;
 
-import net.dl909.dl_ct.DL909_creative_tool;
+import net.dl909.dl_ct.dl909_creative_tool;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
@@ -24,7 +24,7 @@ public class item_tp_block_entity extends BlockEntity {
     private float target_z = 0;
 
     public item_tp_block_entity(BlockPos pos, BlockState state) {
-        super(DL909_creative_tool.ITEM_TP_BLOCK_ENTITY, pos, state);
+        super(dl909_creative_tool.ITEM_TP_BLOCK_ENTITY, pos, state);
         readNbt(this.createNbt());
         target_x = 0.0f;
         target_y = 0.0f;

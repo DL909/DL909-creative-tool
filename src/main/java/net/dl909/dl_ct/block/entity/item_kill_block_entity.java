@@ -1,26 +1,19 @@
 package net.dl909.dl_ct.block.entity;
 
-import net.dl909.dl_ct.DL909_creative_tool;
+import net.dl909.dl_ct.dl909_creative_tool;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Objects;
 
 public class item_kill_block_entity extends BlockEntity {
 
     public item_kill_block_entity(BlockPos pos, BlockState state) {
-        super(DL909_creative_tool.ITEM_KILL_BLOCK_ENTITY, pos, state);
+        super(dl909_creative_tool.ITEM_KILL_BLOCK_ENTITY, pos, state);
     }
     public static void tick(World world, BlockPos pos) {
         for(Entity target : world.getEntitiesByType(

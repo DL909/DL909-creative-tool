@@ -1,6 +1,6 @@
 package net.dl909.dl_ct.block;
 
-import net.dl909.dl_ct.DL909_creative_tool;
+import net.dl909.dl_ct.dl909_creative_tool;
 import net.dl909.dl_ct.block.entity.item_kill_block_entity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
@@ -28,6 +28,6 @@ public class item_kill_block extends BlockWithEntity implements BlockEntityProvi
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, DL909_creative_tool.ITEM_KILL_BLOCK_ENTITY, (world1, pos, state1, be) -> item_kill_block_entity.tick(world1, pos));
+        return checkType(type, dl909_creative_tool.ITEM_KILL_BLOCK_ENTITY, (world1, pos, state1, be) -> item_kill_block_entity.tick(world1, pos));
     }
 }
