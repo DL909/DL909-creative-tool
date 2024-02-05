@@ -1,7 +1,7 @@
 package net.dl909.dl_ct.block;
 
-import net.dl909.dl_ct.dl909_creative_tool;
 import net.dl909.dl_ct.block.entity.item_kill_block_entity;
+import net.dl909.dl_ct.dl909_creative_tool;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

@@ -11,17 +11,19 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
 public class item_kill_block_entity extends BlockEntity {
-
+    public float time;
     public item_kill_block_entity(BlockPos pos, BlockState state) {
         super(dl909_creative_tool.ITEM_KILL_BLOCK_ENTITY, pos, state);
     }
     public static void tick(World world, BlockPos pos) {
+
         for(Entity target : world.getEntitiesByType(
                 EntityType.ITEM,
                 new Box(pos.getX(),pos.getY(),pos.getZ(),
                         pos.getX()+1,pos.getY()+1,pos.getZ()+1),
                 EntityPredicates.VALID_ENTITY))
         {
+
             target.kill();
         }
     }

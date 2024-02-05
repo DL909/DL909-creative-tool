@@ -11,5 +11,6 @@ public class item_stream_emulator_block_entity extends BlockEntity {
         super(dl909_creative_tool.ITEM_TP_BLOCK_ENTITY, pos, state);
     }
     public static void tick(World world, BlockPos pos, BlockState state, item_stream_emulator_block_entity be) {
+
     }
 }
