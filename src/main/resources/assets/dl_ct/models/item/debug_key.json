@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dl_ct:item/item_tp_block_key"
+    "layer0": "dl_ct:item/debug_key"
   }
 }

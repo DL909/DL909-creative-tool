@@ -60,7 +60,7 @@ public class item_tp_block_entity extends BlockEntity {
         return createNbt();
     }
 
-    public static void tick(World world, BlockPos pos) {
+    public static void tick(World world, BlockPos pos, BlockState state, item_tp_block_entity be) {
         NbtCompound nbt = Objects.requireNonNull(world.getBlockEntity(pos)).createNbt();
         for(Entity target : world.getEntitiesByType(
                 EntityType.ITEM,
@@ -68,7 +68,7 @@ public class item_tp_block_entity extends BlockEntity {
                         pos.getX()+1,pos.getY()+1,pos.getZ()+1),
                 EntityPredicates.VALID_ENTITY))
         {
-            target.teleport(nbt.getFloat("target_x"),nbt.getFloat("target_y"),nbt.getFloat("target_z"));
+            target.teleport(be.target_x,be.target_y,be.target_z);
         }
     }
 }

@@ -31,12 +31,12 @@ public class item_tp_block extends BlockWithEntity implements BlockEntityProvide
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (!world.isClient) {
-            if (itemStack.getNbt() != null && itemStack.getItem() == dl909_creative_tool.ITEM_TP_BLOCK_KEY
+            if (itemStack.getNbt() != null && itemStack.getItem() == dl909_creative_tool.DEBUG_KEY
                     && itemStack.getNbt().contains("pos_x")
                     && itemStack.getNbt().contains("pos_y")
                     && itemStack.getNbt().contains("pos_z")) {
                 NbtCompound nbt = new NbtCompound();
-                nbt.putFloat("target_x", itemStack.getNbt().getFloat("target_x"));
+                nbt.putFloat("target_x",itemStack.getNbt().getFloat("target_x"));
                 nbt.putFloat("target_y",itemStack.getNbt().getFloat("target_y"));
                 nbt.putFloat("target_z",itemStack.getNbt().getFloat("target_z"));
                 Objects.requireNonNull(world.getBlockEntity(pos)).readNbt(nbt);
@@ -63,6 +63,6 @@ public class item_tp_block extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, dl909_creative_tool.ITEM_TP_BLOCK_ENTITY, (world1, pos, state1, be) -> item_tp_block_entity.tick(world1, pos));
+        return checkType(type, dl909_creative_tool.ITEM_TP_BLOCK_ENTITY,item_tp_block_entity::tick);
     }
 }

@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class item_tp_block_key extends Item {
-    public item_tp_block_key(Settings settings) {
+public class debug_key extends Item {
+    public debug_key(Settings settings) {
         super(settings);
     }
 
