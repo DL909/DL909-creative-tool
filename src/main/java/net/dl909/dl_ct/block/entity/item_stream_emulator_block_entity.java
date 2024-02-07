@@ -6,7 +6,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -15,7 +14,6 @@ import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -28,41 +26,50 @@ public class item_stream_emulator_block_entity extends BlockEntity{
     public item_stream_emulator_block_entity(BlockPos pos, BlockState state) {
         super(dl909_creative_tool.ITEM_STREAM_EMULATOR_BLOCK_ENTITY, pos, state);
         readNbt(this.createNbt());
+        tick = 0;
+        saving=false;
+        saved=false;
+        list1 = new String[100][100];
     }
     @Override
     public void writeNbt(NbtCompound nbt) {
         // Save the current value of the number to the tag
+        nbt.putInt("tick",tick);
+        nbt.putBoolean("saving",saving);
+        nbt.putBoolean("saved",saved);
         String str = "";
         for(int x=0;x<100;x++){
             for(int y=0;y<100;y++){
-                if(list1[x][y]!=null){
+                if(list1[x][y]==null){
+                    str += ";";
+                }else{
                     str += list1[x][y]+";";
                 }
             }
             nbt.putString(String.valueOf(x),str);
             str = "";
         }
-
-        nbt.putInt("tick",tick);
-        nbt.putBoolean("saving",saving);
-        nbt.putBoolean("saved",saved);
         super.writeNbt(nbt);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
+        tick = nbt.getInt("tick");
+        saving = nbt.getBoolean("saving");
+        saved = nbt.getBoolean("saved");
 
         for(int x=0;x<100;x++){
             String data = nbt.getString(String.valueOf(x));
             if(!Objects.equals(data, "")){
                 String[] line = data.split(";");
-                System.arraycopy(line,0, list1[x], 0, 100);
+                for(int i=0;i<line.length;i++){
+                    list1[x][i]=line[i];
+                }
+                //System.arraycopy(line,0, list1[x], 0, 100);
             }
         }
-        tick = nbt.getInt("tick");
-        saving = nbt.getBoolean("saving");
-        saved = nbt.getBoolean("saved");
+
     }
     @Nullable
     @Override
@@ -95,9 +102,9 @@ public class item_stream_emulator_block_entity extends BlockEntity{
                     String[] str1 = target.getStack().getItem().getTranslationKey().split("\\.");
                     be.list1[be.tick][i]= str1[str1.length - 1] + ","
                             + target.getStack().getCount() + ","
-                            + target.getPos().x + ","
-                            + target.getPos().y + ","
-                            + target.getPos().z + ","
+                            + (target.getPos().x-pos.getX()) + ","
+                            + (target.getPos().y-pos.getY()) + ","
+                            + (target.getPos().z-pos.getZ()) + ","
                             + target.getVelocity().x + ","
                             + target.getVelocity().y + ","
                             + target.getVelocity().z;
@@ -108,8 +115,10 @@ public class item_stream_emulator_block_entity extends BlockEntity{
         }else if(be.saved){
             for(int i=0;i<100;i++){
                 if(be.list1[be.tick][i]!=null){
-                    ItemEntity target = ItemEntityHelper.createItemEntityFromParameterList(world, be.list1[be.tick][i].split(","));
-                    world.spawnEntity(target);
+                    ItemEntity target = ItemEntityHelper.createItemEntityFromParameterList(world,pos, be.list1[be.tick][i].split(","));
+                    if(target!=null){
+                        world.spawnEntity(target);
+                    }
                 }
             }
         }

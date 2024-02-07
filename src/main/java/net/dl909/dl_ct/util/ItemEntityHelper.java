@@ -3,13 +3,14 @@ package net.dl909.dl_ct.util;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Objects;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class ItemEntityHelper {
-    public static ItemEntity createItemEntityFromParameterList(World world,String[] parameters){
+    public static ItemEntity createItemEntityFromParameterList(World world, BlockPos pos, String[] parameters){
         if(parameters.length!=8){
             return null;
         }
@@ -20,9 +21,9 @@ public class ItemEntityHelper {
         return ItemEntityHelper.createItemEntityFromParameter(
                 world,
                 itemStack,
-                Double.parseDouble(parameters[2]),
-                Double.parseDouble(parameters[3]),
-                Double.parseDouble(parameters[4]),
+                Double.parseDouble(parameters[2])+pos.getX(),
+                Double.parseDouble(parameters[3])+pos.getY(),
+                Double.parseDouble(parameters[4])+pos.getZ(),
                 Double.parseDouble(parameters[5]),
                 Double.parseDouble(parameters[6]),
                 Double.parseDouble(parameters[7]));
