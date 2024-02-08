@@ -1,5 +1,6 @@
 package net.dl909.dl_ct.block.entity;
 
+import net.dl909.dl_ct.block.item_stream_emulator_block;
 import net.dl909.dl_ct.dl909_creative_tool;
 import net.dl909.dl_ct.util.ItemEntityHelper;
 import net.minecraft.block.BlockState;
@@ -21,13 +22,11 @@ import java.util.Objects;
 public class item_stream_emulator_block_entity extends BlockEntity{
     public String[][] list1 = new String[100][100];
     public int tick;
-    public boolean saving;
     public boolean saved;
     public item_stream_emulator_block_entity(BlockPos pos, BlockState state) {
         super(dl909_creative_tool.ITEM_STREAM_EMULATOR_BLOCK_ENTITY, pos, state);
         readNbt(this.createNbt());
         tick = 0;
-        saving=false;
         saved=false;
         list1 = new String[100][100];
     }
@@ -35,7 +34,6 @@ public class item_stream_emulator_block_entity extends BlockEntity{
     public void writeNbt(NbtCompound nbt) {
         // Save the current value of the number to the tag
         nbt.putInt("tick",tick);
-        nbt.putBoolean("saving",saving);
         nbt.putBoolean("saved",saved);
         String str = "";
         for(int x=0;x<100;x++){
@@ -56,7 +54,6 @@ public class item_stream_emulator_block_entity extends BlockEntity{
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         tick = nbt.getInt("tick");
-        saving = nbt.getBoolean("saving");
         saved = nbt.getBoolean("saved");
 
         for(int x=0;x<100;x++){
@@ -85,11 +82,11 @@ public class item_stream_emulator_block_entity extends BlockEntity{
         be.tick+=1;
         if(be.tick==100){
             be.tick = 0;
-            if(be.saving){
-                be.saving = false;
+            if(!be.saved){
+                be.saved = true;
             }
         }
-        if(be.saving){
+        if(!be.saved){
             int i = 0;
             for(ItemEntity target : world.getEntitiesByType(
                     EntityType.ITEM,
@@ -112,7 +109,7 @@ public class item_stream_emulator_block_entity extends BlockEntity{
                 }
             }
             Objects.requireNonNull(world.getBlockEntity(pos)).markDirty();
-        }else if(be.saved){
+        }else if(state.get(item_stream_emulator_block.POWERED)||state.get(item_stream_emulator_block.ENABLED)){
             for(int i=0;i<100;i++){
                 if(be.list1[be.tick][i]!=null){
                     ItemEntity target = ItemEntityHelper.createItemEntityFromParameterList(world,pos, be.list1[be.tick][i].split(","));

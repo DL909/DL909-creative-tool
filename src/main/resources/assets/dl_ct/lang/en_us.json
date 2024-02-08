@@ -1,16 +1,11 @@
 {
-  "item.ri.experience_nugget": "experience nugget",
-  "item.ri.experience_extractor": "Experience extractor",
-  "item.ri.experience_storage": "experience storage",
-  "item.ri.item_exterminator": "item exterminator",
-  "item.ri.infinite_water_bucket": "infinite water bucket",
-  "item.ri.infinite_empty_bucket": "infinite empty bucket",
-  "item.ri.item_tp_block_key": "item tp block key",
+  "item.dl_ct.debug_key": "debug key",
+  "item.dl_ct.tooled_stick": "tooled_stick",
+  "item.dl_ct.icon": "icon",
 
-  "item.experience_storage.tooltip": "experience:",
+  "block.dl_ct.item_kill_block": "item kill block",
+  "block.dl_ct.item_tp_block": "item tp block",
+  "block.dl_ct.item_stream_emulator_block": "item stream emulator block",
 
-  "itemGroup.ri_tools.general": "Tools",
-  "itemGroup.ri_item.general": "Items"
-
-
+  "itemGroup.dl_ct.general": "DL909 creative tool"
 }

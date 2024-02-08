@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "dl_ct:block/item_stream_emulator_block" }
+  }
+}
