@@ -85,6 +85,6 @@ public class debug_key extends Item {
                 return false;
             }
         }),null);
-        return TypedActionResult.success(itemStack,world.isClient());
+        return TypedActionResult.success(itemStack, world.isClient());
     }
 }

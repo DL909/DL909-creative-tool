@@ -24,22 +24,22 @@ public class RedstoneLampBlock extends Block {
 
     public RedstoneLampBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)this.getDefaultState().with(LIT, false));
+        this.setDefaultState((BlockState) this.getDefaultState().with(LIT, false));
     }
 
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
+        return (BlockState) this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
     }
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         if (!world.isClient) {
-            boolean bl = (Boolean)state.get(LIT);
+            boolean bl = (Boolean) state.get(LIT);
             if (bl != world.isReceivingRedstonePower(pos)) {
                 if (bl) {
                     world.scheduleBlockTick(pos, this, 4);
                 } else {
-                    world.setBlockState(pos, (BlockState)state.cycle(LIT), 2);
+                    world.setBlockState(pos, (BlockState) state.cycle(LIT), 2);
                 }
             }
 
@@ -47,8 +47,8 @@ public class RedstoneLampBlock extends Block {
     }
 
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if ((Boolean)state.get(LIT) && !world.isReceivingRedstonePower(pos)) {
-            world.setBlockState(pos, (BlockState)state.cycle(LIT), 2);
+        if ((Boolean) state.get(LIT) && !world.isReceivingRedstonePower(pos)) {
+            world.setBlockState(pos, (BlockState) state.cycle(LIT), 2);
         }
 
     }

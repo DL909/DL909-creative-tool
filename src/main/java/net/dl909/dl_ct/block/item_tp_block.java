@@ -36,21 +36,22 @@ public class item_tp_block extends BlockWithEntity implements BlockEntityProvide
                     && itemStack.getNbt().contains("pos_y")
                     && itemStack.getNbt().contains("pos_z")) {
                 NbtCompound nbt = new NbtCompound();
-                nbt.putFloat("target_x",itemStack.getNbt().getFloat("target_x"));
-                nbt.putFloat("target_y",itemStack.getNbt().getFloat("target_y"));
-                nbt.putFloat("target_z",itemStack.getNbt().getFloat("target_z"));
+                nbt.putFloat("target_x", itemStack.getNbt().getFloat("target_x"));
+                nbt.putFloat("target_y", itemStack.getNbt().getFloat("target_y"));
+                nbt.putFloat("target_z", itemStack.getNbt().getFloat("target_z"));
                 Objects.requireNonNull(world.getBlockEntity(pos)).readNbt(nbt);
                 Objects.requireNonNull(world.getBlockEntity(pos)).markDirty();
-                player.sendMessage(Text.literal("target set to "+itemStack.getNbt().getFloat("target_x")+","+itemStack.getNbt().getFloat("target_y")+","+itemStack.getNbt().getFloat("target_z")));
-            }else{
-                player.sendMessage(Text.literal("target:"+
-                        Objects.requireNonNull(world.getBlockEntity(pos)).createNbt().getFloat("target_x")+","+
-                        Objects.requireNonNull(world.getBlockEntity(pos)).createNbt().getFloat("target_y")+","+
+                player.sendMessage(Text.literal("target set to " + itemStack.getNbt().getFloat("target_x") + "," + itemStack.getNbt().getFloat("target_y") + "," + itemStack.getNbt().getFloat("target_z")));
+            } else {
+                player.sendMessage(Text.literal("target:" +
+                        Objects.requireNonNull(world.getBlockEntity(pos)).createNbt().getFloat("target_x") + "," +
+                        Objects.requireNonNull(world.getBlockEntity(pos)).createNbt().getFloat("target_y") + "," +
                         Objects.requireNonNull(world.getBlockEntity(pos)).createNbt().getFloat("target_z")));
             }
         }
         return ActionResult.SUCCESS;
     }
+
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new item_tp_block_entity(pos, state);
@@ -63,6 +64,6 @@ public class item_tp_block extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, dl909_creative_tool.ITEM_TP_BLOCK_ENTITY,item_tp_block_entity::tick);
+        return checkType(type, dl909_creative_tool.ITEM_TP_BLOCK_ENTITY, item_tp_block_entity::tick);
     }
 }

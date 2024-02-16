@@ -3,6 +3,6 @@
   "textures": {
     "side": "dl_ct:block/item_stream_emulator_block_side",
     "top": "dl_ct:block/block_top",
-    "bottom": "dl_ct:block/item_stream_emulator_block_top"
+    "bottom": "dl_ct:block/block_top"
   }
 }

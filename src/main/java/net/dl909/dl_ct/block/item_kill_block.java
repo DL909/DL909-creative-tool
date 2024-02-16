@@ -16,6 +16,7 @@ public class item_kill_block extends BlockWithEntity implements BlockEntityProvi
     public item_kill_block(Settings settings) {
         super(settings);
     }
+
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new item_kill_block_entity(pos, state);

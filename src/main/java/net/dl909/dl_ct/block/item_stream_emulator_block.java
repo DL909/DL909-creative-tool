@@ -26,26 +26,30 @@ public class item_stream_emulator_block extends BlockWithEntity implements Block
 
     public item_stream_emulator_block(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState) ((BlockState) ((BlockState)this.getStateManager().getDefaultState()).with(POWERED, false)).with(ENABLED,false));
+        this.setDefaultState((BlockState) ((BlockState) ((BlockState) this.getStateManager().getDefaultState()).with(POWERED, false)).with(ENABLED, false));
     }
+
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState) ((BlockState)this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()))).with(ENABLED,false);
+        return (BlockState) ((BlockState) this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()))).with(ENABLED, false);
     }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (!world.isClient) {
             if (itemStack.getItem() == dl909_creative_tool.DEBUG_KEY) {
-                world.setBlockState(pos,state.with(ENABLED,!state.get(ENABLED)));
+                world.setBlockState(pos, state.with(ENABLED, !state.get(ENABLED)));
             }
         }
         return ActionResult.PASS;
     }
+
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new item_stream_emulator_block_entity(pos, state);
     }
+
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         boolean bl = world.isReceivingRedstonePower(pos);
@@ -59,14 +63,16 @@ public class item_stream_emulator_block extends BlockWithEntity implements Block
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
+
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(POWERED,ENABLED);
+        builder.add(POWERED, ENABLED);
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, dl909_creative_tool.ITEM_STREAM_EMULATOR_BLOCK_ENTITY, item_stream_emulator_block_entity::tick);
     }
+
     static {
         POWERED = Properties.POWERED;
         ENABLED = Properties.ENABLED;

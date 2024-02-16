@@ -1,11 +1,10 @@
 {
   "item.dl_ct.debug_key": "debug key",
+  "item.dl_ct.hopper_update_tool": "hopper update tool",
   "item.dl_ct.tooled_stick": "tooled_stick",
   "item.dl_ct.icon": "icon",
-
   "block.dl_ct.item_kill_block": "item kill block",
   "block.dl_ct.item_tp_block": "item tp block",
   "block.dl_ct.item_stream_emulator_block": "item stream emulator block",
-
   "itemGroup.dl_ct.general": "DL909 creative tool"
 }
