@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "dl_ct",
-  "version": "${version}",
+  "version": "1.1",
 
   "name": "DL909 creative tool",
   "description": "A mod add some useful debug tool",
