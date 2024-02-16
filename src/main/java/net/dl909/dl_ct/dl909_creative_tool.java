@@ -55,6 +55,7 @@ public class dl909_creative_tool implements ModInitializer {
             content.add(DEBUG_KEY);
             content.add(TOOLED_STICK);
             content.add(ICON);
+            content.add(HOPPER_DEBUG_KEY);
         });
     }
 
