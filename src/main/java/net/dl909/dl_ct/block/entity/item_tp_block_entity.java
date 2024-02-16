@@ -61,7 +61,6 @@ public class item_tp_block_entity extends BlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, item_tp_block_entity be) {
-        NbtCompound nbt = Objects.requireNonNull(world.getBlockEntity(pos)).createNbt();
         for (Entity target : world.getEntitiesByType(
                 EntityType.ITEM,
                 new Box(pos.getX(), pos.getY(), pos.getZ(),

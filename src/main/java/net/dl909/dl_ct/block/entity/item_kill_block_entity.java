@@ -11,7 +11,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
 public class item_kill_block_entity extends BlockEntity {
-    public float time;
 
     public item_kill_block_entity(BlockPos pos, BlockState state) {
         super(dl909_creative_tool.ITEM_KILL_BLOCK_ENTITY, pos, state);
