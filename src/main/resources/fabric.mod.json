@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "dl_ct",
-  "version": "1.1",
+  "version": "1.2",
 
   "name": "DL909 creative tool",
   "description": "A mod add some useful debug tool",
@@ -19,7 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.dl909.dl_ct.dl909_creative_tool"
+      "dl909.dl_ct.dl909_creative_tool"
+    ],
+    "client": [
+      "dl909.dl_ct.client.DL909_creative_toolClient"
     ]
   },
   "mixins": [

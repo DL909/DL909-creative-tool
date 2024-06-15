@@ -6,5 +6,10 @@
   "block.dl_ct.item_kill_block": "item kill block",
   "block.dl_ct.item_tp_block": "item tp block",
   "block.dl_ct.item_stream_emulator_block": "item stream emulator block",
+
+
+  "container.crafter": "Crafter",
+
   "itemGroup.dl_ct.general": "DL909 creative tool"
+
 }
