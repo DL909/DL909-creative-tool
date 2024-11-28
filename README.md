@@ -1,17 +1,9 @@
-# DL909 Creative Tool Mod
+# Fabric Example Mod
 
-A mod add some useful debug tool into minecraft
+## Setup
 
-### Features
-item kill block: kill all item entity inside
+For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
-item tp block: tp all item entity inside to a point
+## License
 
-item stream emulator block: record item went through it in first 5 seconds
-it is placed and spawn same item Entity when triggered by redstone
-
-debug key: a tool to record and set a point into item tp block
-
-Hopper update tool: force nearby hopper check its state
-
-crafter: Porting of the Crafter in minecraft 1.20+
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
