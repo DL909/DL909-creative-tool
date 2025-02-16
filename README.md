@@ -33,6 +33,8 @@ use github issue.
 
 please follow the templates\(I add them just before I write this\).
 
+if you have develop question \( I mean, some logic that you can't understand, not questions like 'Oh why it crash again'\), contact me through `DL909_2024@outlook.com`.
+
 **note**
 
 **All problems caused by deployments that do not follow the requirements should not be reported.**
